@@ -18,6 +18,10 @@ pipeline {
         PROJECT = 'Belajar Jenkins Pipeline'
     }
 
+    triggers {
+        cron('*/5 * * * *') //jadwalkan build setiap 5 menit
+    }
+
     options {
         disableConcurrentBuilds() //nonaktifkan build concurrent
         timeout(time: 2, unit: 'MINUTES') //batasi waktu maksimal 1 jam
