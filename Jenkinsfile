@@ -20,9 +20,18 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo('Start Testing...')
-                // sh('./mvnw test') //jalankan perintah maven
-                echo('Testing Finished!')
+                // echo('Start Testing...')
+                // // sh('./mvnw test') //jalankan perintah maven
+                // echo('Testing Finished!')
+
+                script {
+                  def data = [
+                    "firstName": "John",
+                    "lastName" : "Doe",
+                  ]
+                  writeJSON(file : 'data.json', json: data, pretty: 4)
+                }
+
             }
         }
         stage('Deploy') {
