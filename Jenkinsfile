@@ -31,7 +31,7 @@ pipeline {
     stages {
 
         stage('Preparation') { //Sequential Stages
-            stages {
+            pararellel {
                 stage('Prepare Java') {
                     steps {
                       echo('Preparing Java Environment...')
