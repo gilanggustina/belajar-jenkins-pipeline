@@ -41,12 +41,12 @@ pipeline {
                         values '32', '64'
                     }
                 }
-            }
-            stages {
-                stage('Show OS Info') {
-                    steps {
-                        echo("Operating System: ${OS}")
-                        echo("Architecture: ${ARC}-bit")
+                stages {
+                    stage('Show OS Info') {
+                        steps {
+                            echo("Operating System: ${OS}")
+                            echo("Architecture: ${ARC}-bit")
+                        }
                     }
                 }
             }
