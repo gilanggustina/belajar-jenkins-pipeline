@@ -35,11 +35,13 @@ pipeline {
                 stage('Prepare Java') {
                     steps {
                       echo('Preparing Java Environment...')
+                      sleep(5)
                     }
                 }
                 stage('Prepare Maven') {
                     steps {
                       echo('Preparing Maven Environment...')
+                      sleep(5)
                     }
                 }
             }
