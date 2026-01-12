@@ -9,10 +9,10 @@ pipeline {
         PROJECT = 'Belajar Jenkins Pipeline'
     }
     stages {
-        environment {
-          APP = credentials('gilang_rahasia')
-        }
         stage('Preparation') {
+            environment {
+              APP = credentials('gilang_rahasia')
+            }
             steps {
               echo("Author: ${AUTHOR}")
               echo("Project: ${PROJECT}")
