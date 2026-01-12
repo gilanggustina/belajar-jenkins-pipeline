@@ -172,7 +172,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'gilang_rahasia', 
-                    usernameVariable: 'USER'
+                    usernameVariable: 'USER',
                     passwordVariable: 'PASSWORD', 
                 )]) {
                   sh('echo "Realease it with -u $USER -p $PASSWORD" > "release.txt"')
