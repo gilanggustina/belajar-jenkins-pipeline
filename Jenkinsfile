@@ -18,9 +18,9 @@ pipeline {
         PROJECT = 'Belajar Jenkins Pipeline'
     }
 
-    triggers {
-        cron('*/5 * * * *') //jadwalkan build setiap 5 menit
-    }
+    // triggers {
+    //     cron('*/5 * * * *') //jadwalkan build setiap 5 menit
+    // }
 
     options {
         disableConcurrentBuilds() //nonaktifkan build concurrent
@@ -83,8 +83,16 @@ pipeline {
             }
         }
         stage('Deploy') {
+            input {
+                message 'Are you sure to deploy?'
+                ok 'Yes, deploy now!'
+                submitter 'pzn'
+                parameters {
+                    choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'Select the target environment for deployment')
+                }
+            }
             steps {
-                echo('Deploying...')
+                
             }
         }
     }
