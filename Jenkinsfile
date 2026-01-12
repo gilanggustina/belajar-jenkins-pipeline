@@ -29,6 +29,7 @@ pipeline {
     }
 
     stages {
+
         stage('Preparation') { //Sequential Stages
             stages {
                 stage('Prepare Java') {
@@ -54,7 +55,7 @@ pipeline {
             }
         }
 
-        stage('Preparation') {
+        stage('Show Info') {
             environment {
               APP = credentials('gilang_rahasia')
             }
