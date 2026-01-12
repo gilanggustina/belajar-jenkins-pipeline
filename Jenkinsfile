@@ -4,6 +4,15 @@ pipeline {
           label 'linux && java11' //cari agent dengan label linux dan java11
       }
     }
+
+    parameters {
+        string(name: 'GREETING', defaultValue: 'Hello', description: 'How should I greet you?')
+        text(name: 'FEEDBACK', defaultValue: 'Your feedback here...', description: 'Please provide your feedback')
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'A simple toggle switch')
+        choice(name: 'COLOR', choices: ['Red', 'Green', 'Blue'], description: 'Pick a color')
+        password(name: 'SECRET', defaultValue: 'supersecret', description: 'Enter a secret value')
+    }
+
     environment {
         AUTHOR = 'Cahaya Gilang Gustina'
         PROJECT = 'Belajar Jenkins Pipeline'
@@ -14,6 +23,7 @@ pipeline {
         timeout(time: 2, unit: 'MINUTES') //batasi waktu maksimal 1 jam
         buildDiscarder(logRotator(numToKeepStr: '5')) //simpan build terakhir sebanyak 5
     }
+
     stages {
         stage('Preparation') {
             environment {
